@@ -1,0 +1,25 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/styles/popups/popups_shared.vcss_c" />
+	</styles>
+    <script>
+    var SetupPopup = function()
+    {
+        var titleValue = $.GetContextPanel().GetAttributeString('title', 'Attention!');
+        var messageValue = $.GetContextPanel().GetAttributeString('message', '');
+
+        $.GetContextPanel().SetDialogVariable('title', titleValue);
+        $.GetContextPanel().SetDialogVariable('message', messageValue);
+    };
+    </script>
+    <PopupCustomLayout class="PopupPanel" popupbackground="dim" oncancel="UIPopupButtonClicked()" onload="SetupPopup()">
+        <Label class="PopupTitle" text="{s:title}" />
+
+		<Label class="PopupMessage" text="{s:message}" />
+
+		<Panel class="PopupButtonRow">
+			<TextButton class="PopupButton" text="OK" onactivate="UIPopupButtonClicked()" />
+		</Panel>
+    </PopupCustomLayout>
+</root>

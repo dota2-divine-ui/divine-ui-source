@@ -1,0 +1,29 @@
+<root>
+	<styles>
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+        <include src="s2r://panorama/styles/controls/control_demo_mode_button.vcss_c" />
+        <include src="s2r://panorama/styles/controls/custom_control_demo_mode_button.vcss_c" />
+    </styles>
+    <scripts>
+        <include src="s2r://panorama/scripts/utils.vjs_c" />
+        <include src="s2r://panorama/scripts/controls/custom_control_demo_mode_button.vjs_c" />
+    </scripts>
+    <DemoModeButton onload="SetupPanel()">
+        <Button class="DemoButton StartDemo" onactivate="DOTADemoButtonClicked( false )" onmouseover="UIShowTextTooltip( #DOTA_HeroDemo_Button_Tooltip )" onmouseout="UIHideTextTooltip()">
+        <Panel class="CenterAlign LeftRightFlow DemoButtonLabel" >
+            <Label text="#DOTA_HeroDemo_Button" />
+            <Panel class="DemoArrow" />
+        </Panel>
+        </Button>
+        <Button class="DemoButton ReturnToDemo" onactivate="DOTADemoButtonClicked( true )" onmouseover="UIShowTextTooltip( #DOTA_HeroDemo_Button_Return_Tooltip )" onmouseout="UIHideTextTooltip()">
+            <Panel class="CenterAlign LeftRightFlow DemoButtonLabel" >
+            <Label text="#DOTA_HeroDemo_Button_Return" />
+            <Panel class="DemoArrow" />
+            </Panel>
+        </Button>
+        <Button id="SetHeroShowcaseButton" class="DemoButton Blue" onactivate="SetFavoriteHero()" onmouseover="UIShowTextTooltip('Set this hero as your favorite, it will appear in the Hero Showcase of your profile.')" onmouseout="UIHideTextTooltip()">
+            <Label id="SetHeroShowcaseLabel" class="IsVisible" text="FAVORITE HERO"/>
+        </Button>
+        <Label id="DummyHeroID" style="visibility: collapse;" text="{g:dota_hero_name:hero_id}"/>
+    </DemoModeButton>
+</root>

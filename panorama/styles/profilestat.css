@@ -1,0 +1,27 @@
+#LocalPlayerStat
+{
+    visibility: collapse;
+}
+
+#ProfileStat
+{
+   color: white;
+   font-weight: bold;
+   font-size: 38px;
+   horizontal-align: center;
+   text-shadow: 0px 0px 12px #5d7070;
+}
+
+#StatName
+{
+   font-size: 20px;
+   text-transform: uppercase;
+   text-shadow: 1px 1px 2px 2.0 #000000;
+   horizontal-align: center;
+}
+
+ProfileStat
+{
+    flow-children: down;
+    width: 176px;
+}

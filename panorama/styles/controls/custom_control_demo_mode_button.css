@@ -1,0 +1,34 @@
+#SetHeroShowcaseButton
+{
+    visibility: collapse;
+    margin-left: 270px;
+}
+
+.DemoButton.Blue
+{
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #65a9db ), to( #2b4b75 ) );
+    border-top: 1px solid #80bceb;
+    border-left: 1px solid #507693;
+    border-right: 1px solid #507693;
+    border-bottom: 1px solid #273a48;
+}
+
+#SetHeroShowcaseLabel
+{
+    visibility: collapse;
+}
+
+#SubmitLoading
+{
+    visibility: collapse;
+}
+
+#SetHeroShowcaseLabel.IsVisible
+{
+    visibility: visible;
+}
+
+#SubmitLoading.IsVisible
+{
+    visibility: visible;
+}

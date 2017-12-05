@@ -1,0 +1,30 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/styles/popups/popups_shared.vcss_c" />
+        <include src="s2r://panorama/styles/popups/popup_select_background_showcase.vcss_c" />
+	</styles>
+    <scripts>
+		<include src="s2r://panorama/scripts/utils.vjs_c" />
+        <include src="s2r://panorama/scripts/apis.vjs_c" />
+        <include src="s2r://panorama/scripts/popups/popup_select_background_showcase.vjs_c" />
+    </scripts>
+    <PopupCustomLayout class="PopupPanel" popupbackground="blur" onload="OnLoad()">
+        <Panel id="BackgroundSelectionPanel">
+            <Label class="PopupTitle" text="Select a background for your hero" />
+            <Label id="ErrorMsg" class="ErrorHint" text="" />
+
+            <Panel id="BackgroundsPanel" />
+
+            <Panel class="PopupButtonRow">
+                <TextButton class="PopupButton" text="Without background" onactivate="SelectBackground('none')" />
+            </Panel>
+        </Panel>
+
+        <Panel id="LoadingPanel">
+            <Panel class="Spinner" />
+        </Panel>
+
+        <DOTAUserName id="DummyUserName" steamid="local" style="visibility: collapse;" />
+    </PopupCustomLayout>
+</root>

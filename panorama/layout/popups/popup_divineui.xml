@@ -1,0 +1,35 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/styles/popups/popups_shared.vcss_c" />
+	</styles>
+    <scripts>
+		<include src="s2r://panorama/scripts/apis.vjs_c" />
+    </scripts>
+    <script>
+    var SetupPopup = function()
+    {
+        var latestVersion = $.GetContextPanel().GetAttributeString('latest_version', '?');
+
+        $.GetContextPanel().SetDialogVariable('version', sVersion);
+        $.GetContextPanel().SetDialogVariable('latest_version', latestVersion);
+    };
+    </script>
+    <PopupCustomLayout class="PopupPanel" popupbackground="dim" oncancel="UIPopupButtonClicked()" onload="SetupPopup()">
+        <Label class="PopupTitle" text="Thanks for using Divine UI!" />
+
+		<Label class="PopupMessage" text="Created with the MMR of an Archon for the community of Dota 2." style="horizontal-align: center; font-weight: bold; font-size: 20px;" />
+        <Label class="PopupMessage" html="true" text="Author: &lt;a href=&quot;http://steamcommunity.com/id/kolesiaz/&quot;&gt;Iván Bravo&lt;/a&gt; (&lt;a href=&quot;https://twitter.com/Kolesias&quot;&gt;@Kolesias&lt;/a&gt;)" style="horizontal-align: center; font-weight: bold; font-size: 20px;" />
+
+        <Label class="PopupMessage" text="Installed Version: {s:version}" style="horizontal-align: left; margin-top: 20px;" />
+        <Label class="PopupMessage" text="Latest Version: {s:latest_version}" style="horizontal-align: left;" />
+        <Label class="PopupMessage" html="true" text="&lt;a href=&quot;https://redd.it/7hi2vc&quot;&gt;Instructions to update.&lt;/a&gt;" style="horizontal-align: left;" />
+
+        <Label class="PopupMessage" html="true" text="Report problems, suggestions and opinions in: &lt;a href=&quot;https://www.reddit.com/r/Dota2DivineUI/&quot;&gt;r/Dota2DivineUI&lt;/a&gt;" style="horizontal-align: left; margin-top: 20px;" />
+        <Label class="PopupMessage" text="Community Profile Backgrounds: /u/Lecia_Dota" style="horizontal-align: left;" />
+
+		<Panel class="PopupButtonRow">
+			<TextButton class="PopupButton" text="OK" onactivate="UIPopupButtonClicked()" />
+		</Panel>
+    </PopupCustomLayout>
+</root>

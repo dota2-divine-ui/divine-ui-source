@@ -1,0 +1,864 @@
+/* Background */
+
+.ProfileTopLevel
+{
+    margin-top: 0;
+    height: 100%;
+}
+
+#ProfileInteractable
+{
+    padding-top: 125px;
+}
+
+#Background
+{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+/* Header */
+
+#Header
+{
+    border: 1px solid transparent;
+    border-bottom: 0;
+    transition: all .3s linear;
+}
+
+#Header.ProBackground
+{
+    background-image: url('file://{images}/13741233615_e1275a8bf2_b.jpg');
+    background-position: left center;
+    border-radius: 10px;
+    border-color: black;
+}
+
+#ProfileContainer #AvatarImage
+{
+    margin-left: 0;
+}
+
+#ProfileCardStats
+{
+    width: 460px;
+}
+
+/* Debug */
+
+#CustomProfileContent
+{
+    visibility: collapse;
+}
+
+/* Arrows */
+
+.ArrowButton
+{
+    vertical-align: middle;
+    width: 90px;
+    flow-children: down;
+    padding: 12px;
+    transition: opacity 0.4s ease-in-out 0.0s;
+    opacity: 0.9;
+    z-index: 99;
+}
+
+.ArrowButton:hover
+{
+    opacity: 1;
+}
+
+.Arrow
+{
+    width: 40px;
+    height: 40px;
+    horizontal-align: center;
+    wash-color: white;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.ArrowButton Label
+{
+    color: white;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-top: 4px;
+    text-overflow: shrink;
+    text-shadow: 1px 1px 2px 2.0 #000000;
+}
+
+#OpenExtendedView
+{
+    horizontal-align: right;
+}
+
+#OpenExtendedView .Arrow
+{
+    background-image: url("s2r://panorama/images/control_icons/arrow_solid_right_png.vtex");
+}
+
+#OpenMainView
+{
+    visibility: collapse;
+    horizontal-align: left;
+}
+
+#OpenMainView .Arrow
+{
+    background-image: url("s2r://panorama/images/control_icons/arrow_solid_left_png.vtex");
+}
+
+/* Structure */
+
+#ProfileContent
+{
+    width: 1392px;
+    height: 690px;
+    flow-children: right;
+    overflow: clip squish;
+    horizontal-align: center;
+}
+
+#ProfileContent.ProfileBackground
+{
+    background-color: #000000dd;
+    border-radius: 5px;
+}
+
+.ViewPanel
+{
+    width: 100%;
+    height: 100%;
+    flow-children: right;
+    transition-duration: 0.8s;
+    transition-property: transform, opacity;
+    transition-timing-function: ease-in-out;
+}
+
+#MainViewPanel
+{
+    opacity: 1;
+}
+
+#MainViewPanel.Hidden
+{
+    transform: translateX( -1800px );
+    opacity: 0;
+}
+
+#DetailsViewPanel
+{
+    opacity: 0;
+}
+
+#DetailsViewPanel.Visible
+{
+    transform: translateX( -100% );
+    opacity: 1;
+}
+
+.ProfileColumn
+{
+    width: 364px;
+    height: 675px;
+    flow-children: down;
+}
+
+.ProfileColumn.ProfileSocialFeed
+{
+    margin-right: 10px;
+    background-color: #000000bb;
+}
+
+.ProfileColumn.FillParentFlow
+{
+    width: fill-parent-flow( 1.0 );
+}
+
+.ProfileColumn .Heading1
+{
+    vertical-align: center;
+    horizontal-align: center;
+    font-size: 40px;
+}
+
+.ProfileColumn .Section
+{
+    margin-bottom: 25px;
+}
+
+.ProfileColumn .Section.Black
+{
+    background-color: #000000bb;
+    border: 1px solid #303a43;
+    box-shadow: inset #000000aa 1px 1px 2px 1px;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.ProfileColumn .Section .Title
+{
+    color: #DADADA;
+    text-transform: uppercase;
+    font-size: 25px;
+    horizontal-align: center;
+    font-weight: thin;
+}
+
+/* Badges */
+
+.ProfileBadges
+{
+    flow-children: right;
+    horizontal-align: center;
+}
+
+.AspectRatio16x10 #ProfileRankTierContainer
+{
+    margin: 0;
+}
+
+.AspectRatio4x3 #ProfileRankTierContainer
+{
+    margin: 0;
+}
+
+.AspectRatio21x9 #ProfileRankTierContainer
+{
+    margin: 0;
+}
+
+#ProfileRankTierContainer
+{
+    margin: 0;
+    width: 135px;
+    height: 135px;
+    horizontal-align: center;
+}
+
+#ProfileBadgeContainer
+{
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+    horizontal-align: center;
+}
+
+DOTAProfilePage #ProfileBadge
+{
+    width: 100%;
+    height: width-percentage(100%);
+}
+
+/* PreviousBattlePasses */
+
+#PreviousBattlePasses
+{
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 15px;
+    height: 80px;
+    overflow: squish;
+    width: 100%;
+    vertical-align: bottom;
+}
+
+.PreviousBattlePass
+{
+    margin: 0;
+    width: fill-parent-flow( 1.0 );
+}
+
+/* Conduct Summary */
+
+#ConductBox
+{
+    margin-top: 0;
+    opacity: 0.9;
+    transition-duration: 0.3s;
+    transition-property: background-color, opacity;
+    transition-timing-function: ease-in-out;
+}
+
+#ConductBox:hover
+{
+    background-color: black;
+    opacity: 1;
+}
+
+#PanelConductSummary
+{
+    width: 100%;
+}
+
+#ConductSummaryLabel
+{
+    padding: 0;
+    font-size: 18px;
+    color: white;
+    vertical-align: top;
+    horizontal-align: center;
+}
+
+#ConductSummaryDate
+{
+    font-size: 17px;
+    opacity: 1;
+    vertical-align: bottom;
+    horizontal-align: center;
+    padding: 0;
+    padding-top: 20px;
+}
+
+/* Play Style */
+
+#PlayStyleBox
+{
+    margin: 0;
+}
+
+.ConductSummaryAvailable #PlayStyleBox
+{
+    margin: 0;
+    border: 1px solid #303a43;
+}
+
+#StatsGraph
+{
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#CompareStyleBox
+{
+    visibility: collapse;
+}
+
+#StatsListing
+{
+    padding-bottom: 15px;
+    margin: 0;
+    margin-bottom: 15px;
+    width: 100%;
+    overflow: scroll squish;
+}
+
+#StatsListing .LeftRightFlow
+{
+    width: 100%;
+}
+
+#StatsListing HorizontalScrollBar
+{
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out 0.0s;
+}
+
+#StatsListing:hover HorizontalScrollBar
+{
+    opacity: 1;
+}
+
+#StatsBox
+{
+    height: 80%;
+    vertical-align: top;
+}
+
+/* Hero Showcase */
+
+.ProfileColumn.HeroShowcaseColumn
+{
+    width: 664px;
+    padding: 0 10px;
+    flow-children: none;
+}
+
+#HeroShowcase
+{
+    width: 100%;
+    height: 580px;
+    vertical-align: bottom;
+}
+
+#BackgroundPanel
+{
+    width: 100%;
+    height: 100%;
+}
+
+#BackgroundPreview
+{
+    width: 100%;
+    height: 100%;
+}
+
+#PreviewPanel
+{
+    width: 100%;
+    height: 100%;
+}
+
+.Spinner
+{
+    horizontal-align: center;
+    vertical-align: center;
+}
+
+#QuestionHate
+{
+    color: white;
+    font-size: 350px;
+    vertical-align: center;
+    horizontal-align: center;
+    vertical-align: center;
+    text-shadow: 2px 2px 4px 2.0 #000000;
+}
+
+#NoShowcasePanel
+{
+    width: 100%;
+    vertical-align: center;
+    flow-children: down;
+}
+
+#NoShowcasePanel Image
+{
+    width: 213px;
+    height: width-percentage(100%);
+    horizontal-align: center;
+    margin-bottom: 20px;
+}
+
+#NoShowcasePanel Label
+{
+    font-size: 20px;
+    horizontal-align: center;
+    color: white;
+}
+
+.ServerError
+{
+    color: red;
+    font-size: 18px;
+    vertical-align: center;
+    horizontal-align: center;
+    visibility: collapse;
+    margin: 10px 0;
+}
+
+#HeroPreview
+{
+    width: 85%;
+    height: width-percentage(100%);
+    vertical-align: bottom;
+    horizontal-align: center;
+    border-radius: 15px;
+}
+
+#HeroPreview.WithoutBackground
+{
+    width: 100%;
+    height: width-percentage(90%);
+}
+
+/*
+#HeroShowcase DOTAUIEconSetPreview
+{
+    
+    width: 80%;
+    height: width-percentage(80%);
+    vertical-align: bottom;
+    horizontal-align: center;
+    visibility: collapse;
+}
+*/
+
+/* Hero Showcase Stats */
+
+#HeroAvgStatsPanel
+{
+    height: 94px;
+    vertical-align: top;
+    horizontal-align: center;
+    padding: 10px;
+    flow-children: right;
+    visibility: collapse;
+    tooltip-position: bottom;
+}
+
+#HeroAvgStatsPanel.WithBackground
+{
+    background-color: #000000cc;
+}
+
+#HeroStatsPanel
+{
+    height: 100px;
+    vertical-align: bottom;
+    horizontal-align: left;
+    padding: 10px;
+    flow-children: right;
+    visibility: collapse;
+}
+
+.HeroStatPanel
+{
+    flow-children: down;
+    margin: 0 10px;
+    width: fill-parent-flow( 1.0 );
+}
+
+#HeroStatsPanel .HeroStatPanel
+{
+    width: 130px;
+}
+
+.HeroStatLabel
+{
+    color: #DADADA;
+    font-size: 20px;
+    text-transform: uppercase;
+    horizontal-align: center;
+}
+
+.HeroStatValue
+{
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px 2.0 #000000;
+    horizontal-align: center;
+}
+
+.HeroStatProgress
+{
+    horizontal-align: center;
+}
+
+#AvgKills
+{
+    color: #EA030E;
+}
+
+#AvgDeaths
+{
+    color: #979797;
+}
+
+#AvgAssists
+{
+    color: #A9CF54;
+}
+
+#AvgGPM
+{
+    color: #FBB829;
+}
+
+#AvgXPM
+{
+    color: #76B8A6;
+}
+
+/* Profile Links */
+
+.ProfileLinksPanel
+{
+    flow-children: right;
+    horizontal-align: right;
+    vertical-align: bottom;
+    padding-bottom: 10px;
+}
+
+.ProfileLinksPanel Label
+{
+    font-size: 20px;
+    margin: 0 10px;
+    height: 25px;
+}
+
+.ProfileLinksPanel Label Image
+{
+    width: 15px;
+    height: 15px;
+    vertical-align: center;
+    transition-property: box-shadow;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}
+
+.ProfileLinksPanel Label Image:hover
+{
+    box-shadow: #5d7070 2px 2px 12px 0;
+}
+
+/* Top Heroes */
+
+#TopHeroesPanel
+{
+    visibility: collapse;
+    width: 100%;
+    flow-children: down;
+    padding: 0;
+    padding-top: 10px;
+}
+
+.FiltersTabs
+{
+    flow-children: right;
+    margin-bottom: 5px;
+    horizontal-align: center;
+}
+
+.FiltersTabs .Tab
+{
+    font-size: 14px;
+    color: #8e9795;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition-property: color;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}
+
+.FiltersTabs .Tab:hover
+{
+    color: white;
+}
+
+.FiltersTabs .Tab.Enabled
+{
+    color: white;
+}
+
+.FiltersTabs .TabSeparator
+{
+    margin: 0px 10px;
+    font-size: 14px;
+    color: #8e9795;
+    vertical-align: bottom;
+}
+
+.TopHeroesContainer
+{
+    visibility: collapse;
+    width: 100%;
+    flow-children: down;
+}
+
+.HeroContainer
+{
+    border: 1px solid #303a43;
+    width: 100%;
+    height: 60px;
+    flow-children: right;
+    overflow: clip clip;
+}
+
+.HeroContainer Label
+{
+    width: 182px;
+    vertical-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-size: 17px;
+    margin-left: 25px;
+}
+
+.RotatedEffect
+{
+    height: 200px;
+    width: 190px;
+    transform: rotatez(50deg) translate3d(40px,-100px,0);
+    overflow: clip clip;
+}
+
+.HeroMovie
+{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80% 80%;
+    height: 100%;
+    width: 100%;
+    transform: rotatez(-50deg) translatey(50px);
+}
+
+/* MMR */
+
+#MmrPanel
+{
+    width: 100%;
+    flow-children: down;
+}
+
+#MmrValue
+{
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+    horizontal-align: center;
+    text-shadow: 0px 0px 12px #5d7070;
+}
+
+/* Pro */
+
+#ProPanel
+{
+    width: 100%;
+    flow-children: down;
+}
+
+#ProNameValue
+{
+    color: white;
+    font-size: 33px;
+    horizontal-align: center;
+}
+
+/* Trophy */
+
+#TrophyCountLabel
+{
+    color: #DADADA;
+    text-transform: uppercase;
+    font-size: 22px;
+    horizontal-align: center;
+    font-weight: thin;
+    margin-bottom: 5px;
+}
+
+#TrophyPreview
+{
+    visibility: collapse;
+    margin: 0;
+    margin-bottom: 15px;
+    background-color: none;
+}
+
+/* Profile Legacy Content */
+
+#SocialFeed
+{
+    visibility: visible;
+}
+
+#ProfileContentRightContents
+{
+    margin-bottom: 0;
+}
+
+#MoreInfo
+{
+    width: 100%;
+    height: 100%;
+    visibility: collapse;
+    flow-children: down;
+    overflow: squish scroll;
+}
+
+#MoreInfo.TabEnabled
+{
+    visibility: visible;
+}
+
+#MoreInfo .Section
+{
+    width: 100%;
+    flow-children: down;
+    margin-bottom: 10px;
+}
+
+#MoreInfo .Section .SectionTitle
+{
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 0;
+    padding-left: 10px;
+    background-color: #000000;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+#MoreInfo .Section .SectionText
+{
+    padding: 0 15px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    width: 100%;
+}
+
+#PlayerCardBox
+{
+    background-color: none;
+    background-image: none;
+    box-shadow: none;
+    border: 0;
+    height: 190px;
+}
+
+#OldMmrPanel
+{
+    visibility: collapse;
+}
+
+#OldMmrValue
+{
+    font-size: 50px;
+    horizontal-align: center;
+}
+
+.SettingsOption
+{
+    width: 100%;
+    flow-children: down;
+    padding: 15px;
+}
+
+.AvailableBackgroundsList
+{
+    width: 100%;
+    height: 160px;
+    overflow: scroll squish;
+    flow-children: right;
+}
+
+.AvailableBackgroundsList Image
+{
+    width: 200px;
+    height: width-percentage(65%);
+    margin: 3px;
+    border: 1px solid transparent;
+    transition-duration: 0.2s;
+    transition-property: border-color;
+    transition-timing-function: ease-in-out;
+}
+
+.AvailableBackgroundsList Image:hover
+{
+    border-color: #FBB829;
+}
+
+.AvailableBackgroundsList Panel
+{
+    width: 200px;
+    height: width-percentage(65%);
+    margin: 3px;
+    border: 1px solid transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transition-duration: 0.2s;
+    transition-property: border-color;
+    transition-timing-function: ease-in-out;
+}
+
+.AvailableBackgroundsList Panel:hover
+{
+    border-color: #FBB829;
+}

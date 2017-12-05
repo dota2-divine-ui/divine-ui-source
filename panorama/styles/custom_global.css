@@ -1,0 +1,76 @@
+/* For Debug! */
+
+#ReloadPageButton
+{
+    visibility: visible;
+    wash-color: #5B6670;
+    transition-property: brightness;
+}
+
+#ReloadPageButton:hover
+{
+    brightness: 3.0;
+}
+
+#DivineUIButton
+{
+    wash-color: #5B6670;
+    background-image: url("s2r://panorama/images/control_icons/dota_logo_white.png");
+    transition-property: wash-color, brightness;
+    tooltip-position: bottom;
+    tooltip-body-position: 50% 100%;
+}
+
+#DivineUIButton.UpdateAvailable
+{
+    wash-color: #bd5e2d;
+    brightness: 2.0;
+    animation-name: NewVersionDance;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+#DivineUIButton:hover
+{
+    brightness: 3.0;
+}
+
+@keyframes 'NewVersionDance'
+{
+    0% {
+        transform: rotatez(-10deg);
+    }
+
+    50% {
+        transform: rotatez(10deg);
+    }
+
+    100% {
+        transform: rotatez(-10deg);
+    }
+}
+
+#DevButtons
+{
+    visibility: collapse;
+}
+
+#ZooButton
+{
+    visibility: visible;
+}
+
+#GuidesButton
+{
+    visibility: visible;
+}
+
+/* Global */
+
+.Headline3
+{
+    font-size: 24px;
+    color: offWhite;
+    letter-spacing: 1px;
+}
