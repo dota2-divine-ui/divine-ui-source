@@ -11,6 +11,21 @@
     padding-top: 125px;
 }
 
+#ProfileBackgroundContainer
+{
+    width: 100%;
+    height: 100%;
+}
+
+#ProfileBackgroundContainer #ProfileBackground
+{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
 #Background
 {
     background-position: center;
@@ -131,11 +146,14 @@
     flow-children: right;
     overflow: clip squish;
     horizontal-align: center;
+    padding-top: 0;
+    margin-top: 15px;
 }
 
-#ProfileContent.ProfileBackground
+#ProfileContent.HasBackground
 {
-    background-color: #000000dd;
+    border: 1px solid #42505C;
+    background-color: #000000ee;
     border-radius: 5px;
 }
 
@@ -174,7 +192,7 @@
 .ProfileColumn
 {
     width: 364px;
-    height: 675px;
+    height: 100%;
     flow-children: down;
 }
 
@@ -198,9 +216,21 @@
 
 .ProfileColumn .Section
 {
-    margin-bottom: 25px;
+    padding: 12px 0;
 }
 
+.BlackBox .Section
+{
+    border-bottom: 3px solid #303a43;
+}
+
+.BlackBox .Section.LastChildren
+{
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+/*
 .ProfileColumn .Section.Black
 {
     background-color: #000000bb;
@@ -208,6 +238,23 @@
     box-shadow: inset #000000aa 1px 1px 2px 1px;
     border-radius: 4px;
     padding: 10px;
+}
+*/
+
+.BlackBox
+{
+    background-color: #000000bb;
+    border: 1px solid #42505C;
+    box-shadow: inset #000000aa 1px 1px 2px 1px;
+    border-radius: 4px;
+    padding: 10px 0;
+}
+
+#ProfileContent.HasBackground .BlackBox
+{
+    border-bottom: 0;
+    border-radius: 0;
+    background-color: transparent;
 }
 
 .ProfileColumn .Section .Title
@@ -264,6 +311,15 @@ DOTAProfilePage #ProfileBadge
     height: width-percentage(100%);
 }
 
+/* Personal Play Data */
+
+.PersonalPlay
+{
+    width: 100%;
+    height: fill-parent-flow(1.0);
+    flow-children: down;
+}
+
 /* PreviousBattlePasses */
 
 #PreviousBattlePasses
@@ -287,6 +343,7 @@ DOTAProfilePage #ProfileBadge
 
 #ConductBox
 {
+    background-color: transparent;
     margin-top: 0;
     opacity: 0.9;
     transition-duration: 0.3s;
@@ -329,12 +386,13 @@ DOTAProfilePage #ProfileBadge
 #PlayStyleBox
 {
     margin: 0;
+    background-color: transparent;
 }
 
 .ConductSummaryAvailable #PlayStyleBox
 {
     margin: 0;
-    border: 1px solid #303a43;
+    background-color: transparent;
 }
 
 #StatsGraph
@@ -391,7 +449,7 @@ DOTAProfilePage #ProfileBadge
 #HeroShowcase
 {
     width: 100%;
-    height: 580px;
+    height: 100%;
     vertical-align: bottom;
 }
 
@@ -473,7 +531,7 @@ DOTAProfilePage #ProfileBadge
 #HeroPreview.WithoutBackground
 {
     width: 100%;
-    height: width-percentage(90%);
+    height: 100%;
 }
 
 /*
@@ -499,6 +557,7 @@ DOTAProfilePage #ProfileBadge
     flow-children: right;
     visibility: collapse;
     tooltip-position: bottom;
+    z-index: 9;
 }
 
 #HeroAvgStatsPanel.WithBackground
@@ -521,6 +580,7 @@ DOTAProfilePage #ProfileBadge
     flow-children: down;
     margin: 0 10px;
     width: fill-parent-flow( 1.0 );
+    z-index: 9;
 }
 
 #HeroStatsPanel .HeroStatPanel
@@ -613,8 +673,7 @@ DOTAProfilePage #ProfileBadge
     visibility: collapse;
     width: 100%;
     flow-children: down;
-    padding: 0;
-    padding-top: 10px;
+    padding-bottom: 0;
 }
 
 .FiltersTabs
@@ -662,7 +721,7 @@ DOTAProfilePage #ProfileBadge
 
 .HeroContainer
 {
-    border: 1px solid #303a43;
+    border-top: 1px solid #303a43;
     width: 100%;
     height: 60px;
     flow-children: right;
@@ -791,6 +850,7 @@ DOTAProfilePage #ProfileBadge
     background-color: #000000;
     margin-bottom: 15px;
     width: 100%;
+    border-bottom: 1px solid #42505C;
 }
 
 #MoreInfo .Section .SectionText

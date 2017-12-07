@@ -38,7 +38,8 @@
 		</Button>
 
 		<Panel id="ProfileContainer" class="ProfileTopLevel">
-			<Panel id="Background" />
+			<Panel id="ProfileBackgroundContainer">
+			</Panel>
 
 			<Panel id="ProfileInteractable" >
 				<Panel id="Header" class="LeftRightFlow">
@@ -108,8 +109,8 @@
 
 				<Panel id="ProfileContent">
 					<Panel id="MainViewPanel" class="ViewPanel">
-						<Panel class="ProfileColumn">
-							<Panel class="ProfileBadges Section">
+						<Panel class="ProfileColumn BlackBox">
+							<Panel class="ProfileBadges Section" style="border-bottom: 0;">
 								<Panel id="ProfileBadgeContainer">
 									<Panel id="ProfileBadgeBackground" />
 									<DOTAProfileBadge id="ProfileBadge" />
@@ -123,60 +124,60 @@
 								</Panel>
 							</Panel>
 
-							<Panel id="ConductBox" class="LeftRightFlow Section Black" onactivate="DOTAConductScorecardShowLatest()">
-								<Panel id="PanelConductSummary">
-									<Label id="ConductSummaryLabel" text="#DOTA_Profile_ConductSummary" />
-									<Label id="ConductSummaryDate" text="#DOTA_Profile_ConductSummary_Date"/>
-								</Panel>
-							</Panel>
-
-							<Panel id="StatsListing" class="LeftRightFlow Section Black">
-								<ProfileStat stat="GPM" />
-								<ProfileStat stat="XPM" />
-								<ProfileStat stat="LH" />
-								<ProfileStat stat="Rampages" />
-								<ProfileStat stat="TripleKills" />
-								<ProfileStat stat="FirstBlood" />
-								<ProfileStat stat="CourierKills" />
-								<ProfileStat stat="Aegises" />
-								<ProfileStat stat="CheeseEaten" />
-								<ProfileStat stat="CreepStack" />
-							</Panel>
-
-							<Panel id="PlayStyleBox" class="TopBottomFlow" >
-								<Panel id="StatsLabel" class="LeftRightFlow">
-									<Label id="PlayStyle" text="#DOTA_Profile_PlayStyle" />
-									<Label id="MostRecentGames" text="#DOTA_Profile_MostRecent" />
-								</Panel>
-								<Panel id="StatsBox">
-									<Panel id="StatsGraph" >
-										<DOTASpiderGraph id="SpiderGraph"
-											Labels="#DOTA_Profile_Fighting #DOTA_Profile_Farming #DOTA_Profile_Supporting #DOTA_Profile_Pushing
-											#DOTA_Profile_Versatility"
-
-											TooltipHeaders="#DOTA_Profile_Fighting_TooltipTitle #DOTA_Profile_Farming_TooltipTitle #DOTA_Profile_Supporting_TooltipTitle #DOTA_Profile_Pushing_TooltipTitle
-											#DOTA_Profile_Versatility_TooltipTitle"
-
-											TooltipContents="#DOTA_Profile_Fighting_Tooltip #DOTA_Profile_Farming_Tooltip #DOTA_Profile_Supporting_Tooltip #DOTA_Profile_Pushing_Tooltip #DOTA_Profile_Versatility_Tooltip"
-
-											EdgeRadius="4.0"
-											/>
+								<Panel id="ConductBox" class="LeftRightFlow Section" style="border-top: 3px solid #303a43;" onactivate="DOTAConductScorecardShowLatest()">
+									<Panel id="PanelConductSummary">
+										<Label id="ConductSummaryLabel" text="#DOTA_Profile_ConductSummary" />
+										<Label id="ConductSummaryDate" text="#DOTA_Profile_ConductSummary_Date"/>
 									</Panel>
 								</Panel>
-								<Panel id="CompareStyleBox">
-									<ToggleButton id="CompareStyleButton" text="DOTA_Profile_StatsCompare" onactivate="DOTAShowProfileComparison( 1 );" />
-									<Panel id="Legends">
-										<Panel id="SelfLegend">
-											<Panel id="SelfColorBox" class="ColorBox" />
-											<Label text="#DOTA_Profile_Self" />
+
+								<Panel id="StatsListing" class="LeftRightFlow Section">
+									<ProfileStat stat="GPM" />
+									<ProfileStat stat="XPM" />
+									<ProfileStat stat="LH" />
+									<ProfileStat stat="Rampages" />
+									<ProfileStat stat="TripleKills" />
+									<ProfileStat stat="FirstBlood" />
+									<ProfileStat stat="CourierKills" />
+									<ProfileStat stat="Aegises" />
+									<ProfileStat stat="CheeseEaten" />
+									<ProfileStat stat="CreepStack" />
+								</Panel>
+
+								<Panel id="PlayStyleBox" class="TopBottomFlow" >
+									<Panel id="StatsLabel" class="LeftRightFlow">
+										<Label id="PlayStyle" text="#DOTA_Profile_PlayStyle" />
+										<Label id="MostRecentGames" text="#DOTA_Profile_MostRecent" />
+									</Panel>
+									<Panel id="StatsBox">
+										<Panel id="StatsGraph" >
+											<DOTASpiderGraph id="SpiderGraph"
+												Labels="#DOTA_Profile_Fighting #DOTA_Profile_Farming #DOTA_Profile_Supporting #DOTA_Profile_Pushing
+												#DOTA_Profile_Versatility"
+
+												TooltipHeaders="#DOTA_Profile_Fighting_TooltipTitle #DOTA_Profile_Farming_TooltipTitle #DOTA_Profile_Supporting_TooltipTitle #DOTA_Profile_Pushing_TooltipTitle
+												#DOTA_Profile_Versatility_TooltipTitle"
+
+												TooltipContents="#DOTA_Profile_Fighting_Tooltip #DOTA_Profile_Farming_Tooltip #DOTA_Profile_Supporting_Tooltip #DOTA_Profile_Pushing_Tooltip #DOTA_Profile_Versatility_Tooltip"
+
+												EdgeRadius="4.0"
+												/>
 										</Panel>
-										<Panel id="PlayerLegend">
-											<Panel id="PlayerColorBox" class="ColorBox" />
-											<DOTAUserName id="ComparePlayerName" />
+									</Panel>
+									<Panel id="CompareStyleBox">
+										<ToggleButton id="CompareStyleButton" text="DOTA_Profile_StatsCompare" onactivate="DOTAShowProfileComparison( 1 );" />
+										<Panel id="Legends">
+											<Panel id="SelfLegend">
+												<Panel id="SelfColorBox" class="ColorBox" />
+												<Label text="#DOTA_Profile_Self" />
+											</Panel>
+											<Panel id="PlayerLegend">
+												<Panel id="PlayerColorBox" class="ColorBox" />
+												<DOTAUserName id="ComparePlayerName" />
+											</Panel>
 										</Panel>
 									</Panel>
 								</Panel>
-							</Panel>
 						</Panel>
 
 						<Panel class="ProfileColumn HeroShowcaseColumn">
@@ -234,17 +235,18 @@
 								</Panel>
 							</Panel>
 
+							<!-- Dummy Elements, only for loading icons -->
+							<Image src="file://{images}/icons/opendota-72x72.png" style="visibility: collapse;" />
+							<Image src="file://{images}/icons/dotabuff.png" style="visibility: collapse;" />
+							<Movie src="file://{resources}/videos/loadingscreens/lecia_dota_001/loadingscreen.webm" controls="none" repeat="false" autoplay="onload" style="visibility: collapse;" />
+
 							<Panel class="ProfileLinksPanel">
 								<Label id="OpenDotaProfile" html="true" text="&lt;a href=&quot;https://www.opendota.com/players/{s:steam_id}&quot;&gt;&lt;img src=&quot;file://{images}/icons/opendota-72x72.png&quot;&gt; OpenDota&lt;/a&gt;" />
 								<Label id="DotabuffProfile" html="true" text="&lt;a href=&quot;https://www.dotabuff.com/players/{s:steam_id}&quot;&gt;&lt;img src=&quot;file://{images}/icons/dotabuff.png&quot;&gt; Dotabuff&lt;/a&gt;" />
 							</Panel>
 						</Panel>
 
-						<Panel class="ProfileColumn">
-							<!-- Dummy Elements, only for loading icons -->
-							<Image src="file://{images}/icons/opendota-72x72.png" style="visibility: collapse;" />
-							<Image src="file://{images}/icons/dotabuff.png" style="visibility: collapse;" />
-							
+						<Panel class="ProfileColumn BlackBox">
 							<Panel id="MmrPanel" class="Section Black">
 								<Label id="MmrTitle" class="Title" text="" />
 								<Label id="MmrValue" text="?" />
@@ -273,7 +275,7 @@
 								<Panel id="TrophyListing" class="LeftRightFlow" />
 							</Panel>
 
-							<Panel id="PreviousBattlePasses" class="Section">
+							<Panel id="PreviousBattlePasses" class="Section LastChildren">
 								<Panel id="TI2017" class="PreviousBattlePass" onmouseout="UIHideTextTooltip();" onmouseover="UIShowTextTooltip( #DOTA_EventName_International2017 );" onactivate="DOTAShowBPInternational2017HomePage()"/>
 								<Panel id="Winter2017" class="PreviousBattlePass" onmouseout="UIHideTextTooltip();" onmouseover="UIShowTextTooltip( #DOTA_Profile_Previous_BattlePass_Winter2017 );"/>
 								<Panel id="Fall2016" class="PreviousBattlePass" onmouseout="UIHideTextTooltip();" onmouseover="UIShowTextTooltip( #DOTA_Profile_Previous_BattlePass_Fall2016 );"/>
@@ -288,10 +290,10 @@
 						</Panel>
 
 						<Panel class="ProfileColumn FillParentFlow">
-							<Panel id="ProfileContentRightTabs" class="LeftRightFlow">
-								<RadioButton class="ProfileContentRightTabOption" group="ProfileContentRightTabOptions" selected="true" text="Other" id="MoreInfoOption" onactivate="ActivateMoreInfoTab();" />
-								<Label class="ProfileContentRightTabOptionSeparator SelfOrFriend" text="/" />
+							<Panel id="ProfileContentRightTabs" class="LeftRightFlow" style="margin-top: 15px;">
 								<RadioButton class="ProfileContentRightTabOption SelfOrFriend" group="ProfileContentRightTabOptions" text="#dota_profile_content_tab_recent_games" id="RecentGamesOption" onactivate="ActivateRecentGamesTab();" />
+								<Label class="ProfileContentRightTabOptionSeparator SelfOrFriend" text="/" />
+								<RadioButton class="ProfileContentRightTabOption" group="ProfileContentRightTabOptions" selected="true" text="Other" id="MoreInfoOption" onactivate="ActivateMoreInfoTab();" />
 								<Label class="ProfileContentRightTabOptionSeparator" text="/" />
 								<RadioButton class="ProfileContentRightTabOption" group="ProfileContentRightTabOptions" text="#dota_profile_content_tab_all_hero_challenge" id="AllHeroChallengeOption" onactivate="ActivateAllHeroChallengeTab();" />
 								<!--<Label class="ProfileContentRightTabOptionSeparator SelfOnly" text="/" />
@@ -335,7 +337,7 @@
 
 									<Panel id="ProfileBackgroundsPanel" class="Section SelfOrFriend">
 										<Label class="SectionTitle" text="Profile Background" />
-										<Label class="SectionText" text="The profile backgrounds are selected globally each month." />
+										<Label class="SectionText" text="The profile backgrounds are selected globally each week." />
 										<Label class="SectionText" text="Do not correspond to the ones you have in your inventory." />
 
 										<TextButton class="BlueButton" text="Without background" onactivate="SetProfileBackground('none')" />

@@ -181,8 +181,8 @@ var SetupSettings = function(data)
 {
     // Profile Background
     if ( data.background_id ) {
-        // We wait 1s for the backgrounds to load.
-        $.Schedule(1.0, function() {
+        // We wait 0.5s for the backgrounds to load.
+        $.Schedule(0.5, function() {
             ApplyProfileBackground(data.background_id);
         });
     }
@@ -355,16 +355,19 @@ var SetProfileBackground = function(background_id)
 
 var ApplyProfileBackground = function(background_id)
 {
-    if ( background_id == 'none' ) {
-        $.DispatchEvent('RemoveStyle', $('#ProfileContent'), 'ProfileBackground');
-        $('#Background').visible = false;
+    if ( $('#ProfileBackground') != null ) {
+        $('#ProfileBackground').DeleteAsync(0);
     }
-    else {
-        $.DispatchEvent('AddStyle', $('#ProfileContent'), 'ProfileBackground');
-        // Dirty, but easy to handle
-        $('#Background').style.backgroundImage = 'url("file://{images}/loadingscreens/' + background_id + '/loadingscreen_tga.vtex"), url("file://{images}/loadingscreens/' + background_id + '/loadingscreen.vtex"), url("file://{resources}/videos/loadingscreens/' + background_id + '/loadingscreen.webm")';
-        $('#Background').visible = true;
-    }
+
+    $.Schedule(0.3, function() {
+        if ( background_id == 'none' ) {
+            $.DispatchEvent('RemoveStyle', $('#ProfileContent'), 'HasBackground');
+        }
+        else {
+            $.DispatchEvent('AddStyle', $('#ProfileContent'), 'HasBackground');
+            $('#ProfileBackgroundContainer').BCreateChildren('<Panel id="ProfileBackground" style="background-image: url(\'file://{images}/loadingscreens/' + background_id + '/loadingscreen_tga.vtex\'), url(\'file://{images}/loadingscreens/' + background_id + '/loadingscreen.vtex\'), url(\'file://{resources}/videos/loadingscreens/' + background_id + '/loadingscreen.webm\');" />');
+        }
+    });
 };
 
 var ClearProfile = function()

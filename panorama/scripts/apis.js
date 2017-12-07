@@ -6,7 +6,7 @@ var nAvailableBackgrounds = ['spring01', 'spring01_desert', 'spring01_dire', 'mi
 /**
  * Am I a highly trained developer, rank "Divine" in Dota, which is allowed to officially modify Divine UI?
  */
-var bIsDebug = true;
+var bIsDebug = false;
 
 /**
  * Now I must also remember to change this in each version :(
@@ -53,6 +53,29 @@ function ShowMessagePopup(title, message)
         'file://{resources}/layout/popups/popup_common_alert.xml', 
         'title=' + title + '&message=' + message
     );
+}
+
+/**
+ * 
+ */
+function ShowErrorPopup(code)
+{
+    var errorMsg = 'An internal server problem has occurred! Try again in a few minutes.';
+    
+    if ( code == 0 ) {
+        errorMsg = 'The Divine UI servers have not responded. Try again in a few minutes.';
+    }
+    else if ( code == 403 ) {
+        errorMsg = 'Permission denied: To verify that you are the owner of this Steam account change your name temporarily and include the word: [DU]';
+    }
+    else if ( code == 503 ) {
+        errorMsg = 'We had problems recovering information from OpenDota or Steam. Retry.';
+    }
+
+    ShowMessagePopup('Oops! A problem has occurred', errorMsg);
+
+    $.Msg('Internal Server Error: ' + code);
+    $.Msg(errorMsg);
 }
 
 /**
@@ -126,28 +149,7 @@ function UploadBackground(steamID3, backgroundID)
         complete: function(response) {
             // Request failed
             if ( response.status !== 200 ) {
-                var errorMsg = 'An internal server problem has occurred! Try again in a few minutes.';
-
-                // The server has not responded
-                if ( response.status == 0 ) {
-                    errorMsg = 'The Divine UI servers have not responded. Try again in a few minutes.';
-                }
-                else if ( response.status == 403 ) {
-                    errorMsg = 'Permission denied: To verify that you are the owner of this Steam account change your name temporarily and include the word: [DU]';
-                }
-                else if ( response.status == 503 ) {
-                    errorMsg = 'We had problems recovering information from OpenDota or Steam. Retry.';
-                }
-
-                // Error :(
-                $.DispatchEvent(
-                    'UIShowCustomLayoutPopupParameters', 
-                    'CustomPopupTest', 
-                    'file://{resources}/layout/popups/popup_common_alert.xml', 
-                    'title=Oops! We were unable to save your profile background&message=' + errorMsg
-                );
-
-                $.Msg('Internal Server Error: ' + response.status);
+                ShowErrorPopup(response.status);
                 return;
             }
 
@@ -224,28 +226,7 @@ function UploadSettings(steamID3, optionName, optionValue)
         complete: function(response) {
             // Request failed
             if ( response.status !== 200 ) {
-                var errorMsg = 'An internal server problem has occurred! Try again in a few minutes.';
-
-                // The server has not responded
-                if ( response.status == 0 ) {
-                    errorMsg = 'The Divine UI servers have not responded. Try again in a few minutes.';
-                }
-                else if ( response.status == 403 ) {
-                    errorMsg = 'Permission denied: To verify that you are the owner of this Steam account change your name temporarily and include the word: [DU]';
-                }
-                else if ( response.status == 503 ) {
-                    errorMsg = 'We had problems recovering information from OpenDota or Steam. Retry.';
-                }
-
-                // Error :(
-                $.DispatchEvent(
-                    'UIShowCustomLayoutPopupParameters', 
-                    'CustomPopupTest', 
-                    'file://{resources}/layout/popups/popup_common_alert.xml', 
-                    'title=Oops! We were unable to save your preferences&message=' + errorMsg
-                );
-
-                $.Msg('Internal Server Error: ' + response.status);
+                ShowErrorPopup(response.status);
                 return;
             }
 
