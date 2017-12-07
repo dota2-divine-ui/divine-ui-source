@@ -6,12 +6,12 @@ var nAvailableBackgrounds = ['spring01', 'spring01_desert', 'spring01_dire', 'mi
 /**
  * Am I a highly trained developer, rank "Divine" in Dota, which is allowed to officially modify Divine UI?
  */
-var bIsDebug = false;
+var bIsDebug = true;
 
 /**
  * Now I must also remember to change this in each version :(
  */
-var sVersion = '1.1.2';
+var sVersion = '1.1.3';
 var sLatestVersion = '?';
 
 /**
@@ -38,6 +38,21 @@ function FillWithAvailableBgs(panelName)
     for ( it in nAvailableBackgrounds ) {
         panel.BCreateChildren('<DOTAScenePanel class="BackgroundPreview" map="showcase_backgrounds/' + nAvailableBackgrounds[it] + '" camera="default" particleonly="false" light="global_light" onactivate="SelectBackground(\'' + nAvailableBackgrounds[it] + '\')" />');
     }
+}
+
+/**
+ * 
+ * @param {*} title 
+ * @param {*} message 
+ */
+function ShowMessagePopup(title, message)
+{
+    $.DispatchEvent(
+        'UIShowCustomLayoutPopupParameters', 
+        'CustomPopupTest', 
+        'file://{resources}/layout/popups/popup_common_alert.xml', 
+        'title=' + title + '&message=' + message
+    );
 }
 
 /**
@@ -139,6 +154,52 @@ function UploadBackground(steamID3, backgroundID)
             $.Msg('Upload complete!');
         },
         //complete: callback,
+        timeout: 6000
+    });
+}
+
+/**
+ * 
+ * @param {*} steamID64
+ * @param {*} solo 
+ * @param {*} party 
+ */
+function UploadMMR(steamID64, solo, party)
+{
+    $.Msg('Uploading MMR...');
+    
+    $.AsyncWebRequest(GetHost() + '/profile/mmr', {
+        type: 'POST',
+        data: {
+            'steam_id64': steamID64,
+            'solo_mmr': solo,
+            'party_mmr': party
+        },
+        complete: function(response) {
+            // Request failed
+            if ( response.status !== 200 ) {
+                var errorMsg = 'An internal server problem has occurred! Try again in a few minutes.';
+
+                if ( response.status == 0 ) {
+                    errorMsg = 'The Divine UI servers have not responded. Try again in a few minutes.';
+                }
+                else if ( response.status == 403 ) {
+                    errorMsg = 'Permission denied: To verify that you are the owner of this Steam account change your name temporarily and include the word: [DU]';
+                }
+                else if ( response.status == 503 ) {
+                    errorMsg = 'We had problems recovering information from OpenDota or Steam. Retry.';
+                }
+
+                $.Msg('Internal Server Error: ' + response.status);
+                $.Msg(errorMsg);
+
+                $.DispatchEvent('AddStyle', $('#SoloMMRValue'), 'UploadFailed');
+                return;
+            }
+
+            $.DispatchEvent('AddStyle', $('#SoloMMRValue'), 'UploadComplete');
+            $.Msg('Upload complete!');
+        },
         timeout: 6000
     });
 }

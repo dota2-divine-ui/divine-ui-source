@@ -310,7 +310,7 @@
 									</Panel>
 									
 									<Panel id="OldMmrPanel" class="Section SelfOrFriend">
-										<Label class="SectionTitle" text="MMR before Seasonal Ranked" />
+										<Label class="SectionTitle" text="Pre-season MMR" />
 										<Label id="OldMmrValue" text="?" />
 									</Panel>
 
@@ -321,11 +321,15 @@
 											<Label text="MMR Section:" />
 											<DropDown id="MmrSectionOption">
 												<Label text="ESTIMATED" id="EstimatedMmrOption" />
-												<Label text="BEFORE SEASONAL RANKED" id="OldMmrOption" />
+												<Label text="PRE-SEASON" id="OldMmrOption" />
+												<Label text="SOLO" id="SoloMmrOption" />
+												<Label text="PARTY" id="PartyMmrOption" />
 												<Label text="NONE" id="NoneMmrOption" />
 											</DropDown>
 										</Panel>
 
+										<Label class="SectionText" text="* Estimated and Pre-Season MMR are obtained directly from OpenDota and may not be correct." />
+										<Label class="SectionText" html="true" text="* Solo and Party MMR are accurate data but they need to be configured: &lt;a href=&quot;https://redd.it/7i4ea4&quot;&gt;Instructions&lt;/a&gt;." />
 										<Label class="SectionText" text="Some changes will be visible when you reload your profile." />
 									</Panel>
 

@@ -1,0 +1,70 @@
+.AspectRatio16x10 #ProfileRankTierContainer
+{
+    margin: 0;
+}
+
+.AspectRatio4x3 #ProfileRankTierContainer
+{
+    margin: 0;
+}
+
+.AspectRatio21x9 #ProfileRankTierContainer
+{
+    margin: 0;
+}
+
+#ProfileRankTierContainer
+{
+    margin: 0;
+}
+
+#ProfileContainer #AvatarImage
+{
+    margin-left: 15px;
+}
+
+#SoloMMRValue.UploadComplete
+{
+    animation-name: UploadComplete;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 3;
+}
+
+#SoloMMRValue.UploadFailed
+{
+    animation-name: UploadFailed;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 2;
+}
+
+@keyframes 'UploadComplete'
+{
+    0% {
+        color: white;
+    }
+
+    50% {
+        color: green;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@keyframes 'UploadFailed'
+{
+    0% {
+        color: white;
+    }
+
+    50% {
+        color: red;
+    }
+
+    100% {
+        color: white;
+    }
+}

@@ -10,11 +10,14 @@
 		<include src="s2r://panorama/scripts/apis.vjs_c" />
     </scripts>
 	<script>
+	// Can we show the utility buttons for developers?
 	$('#DevButtons').visible = bIsDebug;
 
+	// We verify that we are using the latest version!
 	CheckVersion();
 
-	function OpenDivineUI()
+	// Open a popup with Divine UI information
+	function OpenDivineUIPopup()
 	{
 		$.DispatchEvent(
 			'UIShowCustomLayoutPopupParameters', 
@@ -194,7 +197,7 @@
 									<Button id="GuidesButton" class="DebugButton" onactivate="ToggleStyle( DashboardPagesGuides, Visible )" />
 								</Panel>
 
-								<Button id="DivineUIButton" class="TopBarSmallButton" onactivate="OpenDivineUI()" onmouseover="UIShowTextTooltip('Divine UI. If this icon lights up and dances, there is a new version available.')" onmouseout="UIHideTextTooltip()" />
+								<Button id="DivineUIButton" class="TopBarSmallButton" onactivate="OpenDivineUIPopup()" onmouseover="UIShowTextTooltip('Divine UI. If this icon lights up and dances, there is a new version available.')" onmouseout="UIHideTextTooltip()" />
 
 								<Button id="ReloadPageButton" class="TopBarSmallButton" onactivate="DOTAReloadCurrentPage()" />
 

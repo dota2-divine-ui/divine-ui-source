@@ -40,11 +40,20 @@ var SetViewPanel = function(viewPanel)
         $.DispatchEvent('AddStyle', $('#DetailsViewPanel'), 'Visible');
         $('#OpenExtendedView').visible = false;
         $('#OpenMainView').visible = true;
+
+        $.Schedule(0.3, function() {
+            $('#MoreInfo').ScrollToTop();
+            $('#RecentGamesTable').ScrollToTop();
+        });
     }
 };
 
-var SetupOpenDotaProfile = function(data, settings)
+var SetupOpenDotaProfile = function(response)
 {
+    var data = response.player_data;
+    var settings = response.settings;
+    var custom = response.custom_data;
+
     var mmrTitle = '';
     var mmrValue = null;
 
@@ -57,13 +66,39 @@ var SetupOpenDotaProfile = function(data, settings)
     if ( settings.mmr_section == null || settings.mmr_section == 'estimated' ) {
         if ( data.mmr_estimate && data.mmr_estimate.estimate ) {
             mmrTitle = 'Estimated MMR';
-            mmrValue = data.mmr_estimate.estimate;
+            mmrValue = number_format(data.mmr_estimate.estimate);
         }
     }
     else if ( settings.mmr_section == 'old' ) {
         if ( data.solo_competitive_rank ) {
             mmrTitle = 'Pre-Season MMR';
-            mmrValue = data.solo_competitive_rank;
+            mmrValue = number_format(data.solo_competitive_rank);
+        }
+    }
+    else if ( settings.mmr_section == 'solo' ) {
+        mmrTitle = 'Solo MMR';
+
+        if ( custom == null || custom.mmr == null || custom.mmr.solo == null || isNaN(custom.mmr.solo) ) {
+            mmrValue = 'Not configured';
+        }
+        else if ( custom.mmr.solo <= 0 ) {
+            mmrValue = 'TBD';
+        }
+        else {
+            mmrValue = number_format(custom.mmr.solo);
+        }
+    }
+    else if ( settings.mmr_section == 'party' ) {
+        mmrTitle = 'Party MMR';
+        
+        if ( custom == null || custom.mmr == null || custom.mmr.party == null || isNaN(custom.mmr.party) ) {
+            mmrValue = 'Not configured';
+        }
+        else if ( custom.mmr.party <= 0 ) {
+            mmrValue = 'TBD';
+        }
+        else {
+            mmrValue = number_format(custom.mmr.party);
         }
     }
 
@@ -74,7 +109,7 @@ var SetupOpenDotaProfile = function(data, settings)
     }
 
     if ( data.solo_competitive_rank ) {
-        $('#OldMmrValue').text = data.solo_competitive_rank;
+        $('#OldMmrValue').text = number_format(data.solo_competitive_rank);
         $('#OldMmrPanel').visible = true;
     }
 
@@ -156,6 +191,12 @@ var SetupSettings = function(data)
     if ( data.mmr_section ) {
         if ( data.mmr_section == 'old' ) {
             $('#MmrSectionOption').SetSelected('OldMmrOption');
+        }
+        else if ( data.mmr_section == 'solo' ) {
+            $('#MmrSectionOption').SetSelected('SoloMmrOption');
+        }
+        else if ( data.mmr_section == 'party' ) {
+            $('#MmrSectionOption').SetSelected('PartyMmrOption');
         }
         else if ( data.mmr_section == 'none' ) {
             $('#MmrSectionOption').SetSelected('NoneMmrOption');
@@ -261,7 +302,7 @@ var OnProfileLoaded = function(response, statusText)
 
     // Player Data
     if ( response.player_data ) {
-        SetupOpenDotaProfile(response.player_data, response.settings);
+        SetupOpenDotaProfile(response);
     }
 
     // Top Heroes
@@ -524,6 +565,12 @@ $.RegisterEventHandler('DropDownSelectionChanged', $('#MmrSectionOption'), funct
     }
     else if ( selected.id == 'OldMmrOption' ) {
         value = 'old';
+    }
+    else if ( selected.id == 'SoloMmrOption' ) {
+        value = 'solo';
+    }
+    else if ( selected.id == 'PartyMmrOption' ) {
+        value = 'party';
     }
     else if ( selected.id == 'NoneMmrOption' ) {
         value = 'none';
