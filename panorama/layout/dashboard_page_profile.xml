@@ -29,12 +29,12 @@
 	<Panel class="DashboardPage" onpagesetupsuccess="OnPageSetupSuccess();">
 		<Button id="OpenExtendedView" onactivate="SetViewPanel(1)" class="ArrowButton">
 			<Panel class="Arrow" />
-			<Label text="More" />
+			<Label text="#DU_ArrowMore" />
 		</Button>
 
 		<Button id="OpenMainView" onactivate="SetViewPanel(0)" class="ArrowButton">
 			<Panel class="Arrow" />
-			<Label text="Showcase" />
+			<Label text="#DU_ArrowShowcase" />
 		</Button>
 
 		<Panel id="ProfileContainer" class="ProfileTopLevel">
@@ -181,30 +181,30 @@
 						</Panel>
 
 						<Panel class="ProfileColumn HeroShowcaseColumn">
-							<Panel id="HeroAvgStatsPanel" onmouseover="UIShowTextTooltip('Hero Average Stats.')" onmouseout="UIHideTextTooltip()">
+							<Panel id="HeroAvgStatsPanel" onmouseover="UIShowTextTooltip(#DU_AvgStatsTooltip)" onmouseout="UIHideTextTooltip()">
 								<Panel class="HeroStatPanel">
 									<Label id="AvgKills" class="HeroStatValue" text="0" />
-									<Label class="HeroStatLabel" text="Kills" />
+									<Label class="HeroStatLabel" text="#DU_Kills" />
 								</Panel>
 
 								<Panel class="HeroStatPanel">
 									<Label id="AvgDeaths" class="HeroStatValue" text="0" />
-									<Label class="HeroStatLabel" text="Deaths" />
+									<Label class="HeroStatLabel" text="#DU_Deaths" />
 								</Panel>
 
 								<Panel class="HeroStatPanel">
 									<Label id="AvgAssists" class="HeroStatValue" text="0" />
-									<Label class="HeroStatLabel" text="Assists" />
+									<Label class="HeroStatLabel" text="#DU_Assists" />
 								</Panel>
 
 								<Panel class="HeroStatPanel">
 									<Label id="AvgGPM" class="HeroStatValue" text="0" />
-									<Label class="HeroStatLabel" text="GPM" />
+									<Label class="HeroStatLabel" text="#DU_GPM" />
 								</Panel>
 
 								<Panel class="HeroStatPanel">
 									<Label id="AvgXPM" class="HeroStatValue" text="0" />
-									<Label class="HeroStatLabel" text="XPM" />
+									<Label class="HeroStatLabel" text="#DU_XPM" />
 								</Panel>
 							</Panel>
 
@@ -215,8 +215,8 @@
 									<Panel id="PreviewSpinner" class="Spinner" />
 									<Label id="ServerError" class="ServerError" text="" />
 									<Panel id="NoShowcasePanel">
-										<Label text="It seems that this player has not selected his favorite hero!" />
-										<Label text="You are his friend? Ask him to install Divine UI and configure his profile!" />
+										<Label text="#DU_NoShowcaseTitle" />
+										<Label text="#DU_NoShowcaseHint" />
 									</Panel>
 								</Panel>
 
@@ -226,12 +226,12 @@
 							<Panel id="HeroStatsPanel">
 								<Panel class="HeroStatPanel">
 									<Label id="WinRate" class="HeroStatValue" text="0" />
-									<Label class="HeroStatLabel" text="Win Rate" />
+									<Label class="HeroStatLabel" text="#DU_WinRate" />
 								</Panel>
 
 								<Panel class="HeroStatPanel" style="visibility: collapse;">
 									<ProgressBar id="RatingProgress" class="HeroStatProgress" min="0.0" max="1.0" value="0.0" />
-									<Label class="HeroStatLabel" text="Rating" />
+									<Label class="HeroStatLabel" text="#DU_Rating" />
 								</Panel>
 							</Panel>
 
@@ -253,12 +253,12 @@
 							</Panel>
 
 							<Panel id="TopHeroesPanel" class="Section Black">
-								<Label class="Title" text="Top Heroes" />
+								<Label class="Title" text="#DU_TopHeroes" />
 								
 								<Panel class="FiltersTabs">
-									<Label id="WinsTab" class="Tab" text="Wins" onactivate="SetTopHeroesTab('wins')" />
+									<Label id="WinsTab" class="Tab" text="#DU_Wins" onactivate="SetTopHeroesTab('wins')" />
 									<Label class="TabSeparator" text="/" />
-									<Label id="FavoritesTab" class="Tab" text="Matches" onactivate="SetTopHeroesTab('favorites')" />
+									<Label id="FavoritesTab" class="Tab" text="#DU_Matches" onactivate="SetTopHeroesTab('favorites')" />
 								</Panel>
 
 								<Panel id="FavoritesHeroesPanel" class="TopHeroesContainer" />
@@ -266,7 +266,7 @@
 							</Panel>
 
 							<Panel id="ProPanel" class="Section Black">
-								<Label class="Title" text="Professional Name" />
+								<Label class="Title" text="#DU_ProfessionalName" />
 								<Label id="ProNameValue" text="?" />
 							</Panel>
 
@@ -293,7 +293,7 @@
 							<Panel id="ProfileContentRightTabs" class="LeftRightFlow" style="margin-top: 15px;">
 								<RadioButton class="ProfileContentRightTabOption SelfOrFriend" group="ProfileContentRightTabOptions" text="#dota_profile_content_tab_recent_games" id="RecentGamesOption" onactivate="ActivateRecentGamesTab();" />
 								<Label class="ProfileContentRightTabOptionSeparator SelfOrFriend" text="/" />
-								<RadioButton class="ProfileContentRightTabOption" group="ProfileContentRightTabOptions" selected="true" text="Other" id="MoreInfoOption" onactivate="ActivateMoreInfoTab();" />
+								<RadioButton class="ProfileContentRightTabOption" group="ProfileContentRightTabOptions" selected="true" text="#DU_Other" id="MoreInfoOption" onactivate="ActivateMoreInfoTab();" />
 								<Label class="ProfileContentRightTabOptionSeparator" text="/" />
 								<RadioButton class="ProfileContentRightTabOption" group="ProfileContentRightTabOptions" text="#dota_profile_content_tab_all_hero_challenge" id="AllHeroChallengeOption" onactivate="ActivateAllHeroChallengeTab();" />
 								<!--<Label class="ProfileContentRightTabOptionSeparator SelfOnly" text="/" />
@@ -303,7 +303,7 @@
 							<Panel id="ProfileContentRightContents">
 								<Panel id="MoreInfo">
 									<Panel id="PlayerCardBox" class="Section">
-										<Label class="SectionTitle" text="Player Favorites" />
+										<Label class="SectionTitle" text="#DU_PlayerFavorites" />
 
 										<Panel id="InternalPlayerCardBox" class="TopBottomFlow">
 											<Panel id="ProfileCardSlotsUpperDummy" />
@@ -312,42 +312,42 @@
 									</Panel>
 									
 									<Panel id="OldMmrPanel" class="Section SelfOrFriend">
-										<Label class="SectionTitle" text="Pre-season MMR" />
+										<Label class="SectionTitle" text="#DU_PreSeasonMMR" />
 										<Label id="OldMmrValue" text="?" />
 									</Panel>
 
 									<Panel id="SettingsPanel" class="Section SelfOrFriend">
-										<Label class="SectionTitle" text="Settings" />
+										<Label class="SectionTitle" text="#DU_Settings" />
 
 										<Panel class="SettingsOption">
-											<Label text="MMR Section:" />
+											<Label text="#DU_MMRSectionTitle" />
 											<DropDown id="MmrSectionOption">
-												<Label text="ESTIMATED" id="EstimatedMmrOption" />
-												<Label text="PRE-SEASON" id="OldMmrOption" />
-												<Label text="SOLO" id="SoloMmrOption" />
-												<Label text="PARTY" id="PartyMmrOption" />
-												<Label text="NONE" id="NoneMmrOption" />
+												<Label text="#DU_OptionEstimated" id="EstimatedMmrOption" />
+												<Label text="#DU_OptionPreSeason" id="OldMmrOption" />
+												<Label text="#DU_OptionSolo" id="SoloMmrOption" />
+												<Label text="#DU_OptionParty" id="PartyMmrOption" />
+												<Label text="#DU_OptionNone" id="NoneMmrOption" />
 											</DropDown>
 										</Panel>
 
-										<Label class="SectionText" text="* Estimated and Pre-Season MMR are obtained directly from OpenDota and may not be correct." />
-										<Label class="SectionText" html="true" text="* Solo and Party MMR are accurate data but they need to be configured: &lt;a href=&quot;https://redd.it/7i4ea4&quot;&gt;Instructions&lt;/a&gt;." />
-										<Label class="SectionText" text="Some changes will be visible when you reload your profile." />
+										<Label class="SectionText" text="#DU_SectionMMRHint1" />
+										<Label class="SectionText" html="true" text="#DU_SectionMMRHint2" />
+										<Label class="SectionText" text="#DU_SettingsHint1" />
 									</Panel>
 
 									<Panel id="ProfileBackgroundsPanel" class="Section SelfOrFriend">
-										<Label class="SectionTitle" text="Profile Background" />
-										<Label class="SectionText" text="The profile backgrounds are selected globally each week." />
-										<Label class="SectionText" text="Do not correspond to the ones you have in your inventory." />
+										<Label class="SectionTitle" text="#DU_ProfileBackground" />
+										<Label class="SectionText" text="#DU_ProfileBackgroundHint1" />
+										<Label class="SectionText" text="#DU_ProfileBackgroundHint2" />
 
-										<TextButton class="BlueButton" text="Without background" onactivate="SetProfileBackground('none')" />
+										<TextButton class="BlueButton" text="#DU_WithoutBackground" onactivate="SetProfileBackground('none')" />
 										<Panel id="AvailableBackgroundsPanel" class="AvailableBackgroundsList" />
 									</Panel>
 
 									<Panel id="CustomProfileBackgroundsPanel" class="Section SelfOrFriend">
-										<Label class="SectionTitle" text="Community Profile Background" />
-										<Label class="SectionText" text="The following profile backgrounds have been created by the community." />
-										<Label class="SectionText" text="If you want to send your profile background, do it at: r/Dota2DivineUI" />
+										<Label class="SectionTitle" text="#DU_CommunityProfileBackground" />
+										<Label class="SectionText" text="#DU_CommunityProfileBackgroundHint1" />
+										<Label class="SectionText" text="#DU_CommunityProfileBackgroundHint2" />
 
 										<Panel id="AvailableCustomBackgroundsPanel" class="AvailableBackgroundsList" />
 									</Panel>

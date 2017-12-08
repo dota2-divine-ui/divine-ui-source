@@ -21,8 +21,8 @@
             <Panel class="DemoArrow" />
             </Panel>
         </Button>
-        <Button id="SetHeroShowcaseButton" class="DemoButton Blue" onactivate="SetFavoriteHero()" onmouseover="UIShowTextTooltip('Set this hero as your favorite, it will appear in the Hero Showcase of your profile.')" onmouseout="UIHideTextTooltip()">
-            <Label id="SetHeroShowcaseLabel" class="IsVisible" text="FAVORITE HERO"/>
+        <Button id="SetHeroShowcaseButton" class="DemoButton Blue" onactivate="SetFavoriteHero()" onmouseover="UIShowTextTooltip( #DU_FavoriteHeroTooltip )" onmouseout="UIHideTextTooltip()">
+            <Label id="SetHeroShowcaseLabel" class="IsVisible" text="#DU_FavoriteHeroButton"/>
         </Button>
         <Label id="DummyHeroID" style="visibility: collapse;" text="{g:dota_hero_name:hero_id}"/>
     </DemoModeButton>

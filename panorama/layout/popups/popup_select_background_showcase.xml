@@ -11,13 +11,13 @@
     </scripts>
     <PopupCustomLayout class="PopupPanel" popupbackground="blur" onload="OnLoad()">
         <Panel id="BackgroundSelectionPanel">
-            <Label class="PopupTitle" text="Select a background for your hero" />
+            <Label class="PopupTitle" text="#DU_SelectBackgroundShowcaseTitle" />
             <Label id="ErrorMsg" class="ErrorHint" text="" />
 
             <Panel id="BackgroundsPanel" />
 
             <Panel class="PopupButtonRow">
-                <TextButton class="PopupButton" text="Without background" onactivate="SelectBackground('none')" />
+                <TextButton class="PopupButton" text="#DU_WithoutBackground" onactivate="SelectBackground('none')" />
             </Panel>
         </Panel>
 
