@@ -24,6 +24,8 @@
         <Button id="SetHeroShowcaseButton" class="DemoButton Blue" onactivate="SetFavoriteHero()" onmouseover="UIShowTextTooltip( #DU_FavoriteHeroTooltip )" onmouseout="UIHideTextTooltip()">
             <Label id="SetHeroShowcaseLabel" class="IsVisible" text="#DU_FavoriteHeroButton"/>
         </Button>
-        <Label id="DummyHeroID" style="visibility: collapse;" text="{g:dota_hero_name:hero_id}"/>
+
+        <!-- Dummy for Automatic Compile -->
+        <Image src="file://{images}/help/36aa2feac0fcee39c0da1a8b2c95c7a9.jpg" style="visibility: collapse;" />
     </DemoModeButton>
 </root>

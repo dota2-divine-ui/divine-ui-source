@@ -375,6 +375,8 @@
 						<DOTACountryFlagImage country_code="br" />
 						<DOTACountryFlagImage country_code="at" />
 						<DOTACountryFlagImage country_code="be" />
+
+						<DOTACustomGame custom_game_id="1197063942" style="width: 100%; height: 100%;" />
 					</Panel>
 
 					<Panel id="ZooBackgroundMovie" />
@@ -382,6 +384,8 @@
 				<!--<Movie id="ZooIntroMoviePlayer" src="file://{resources}/videos/intro_movie.webm" controls="full" />-->
 
 				<Movie id="ZooHeroMoviePlayer" src="file://{resources}/videos/heroes/npc_dota_hero_abaddon.webm" controls="none" repeat="true" autoplay="onload" />
+
+
 
 				</Panel>
 				<Panel class="LeftRightFlow">

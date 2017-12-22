@@ -8,15 +8,23 @@
     {
         var titleValue = $.GetContextPanel().GetAttributeString('title', 'Attention!');
         var messageValue = $.GetContextPanel().GetAttributeString('message', '');
+        var imageValue = $.GetContextPanel().GetAttributeString('image', '');
+
+        if( imageValue.length > 0 ) {
+            $('#ImageContainer').BCreateChildren('<Image src="' + imageValue + '" />');
+        }
 
         $.GetContextPanel().SetDialogVariable('title', titleValue);
         $.GetContextPanel().SetDialogVariable('message', messageValue);
     };
     </script>
-    <PopupCustomLayout class="PopupPanel" popupbackground="dim" oncancel="UIPopupButtonClicked()" onload="SetupPopup()">
+    <PopupCustomLayout class="PopupPanel" popupbackground="dim" oncancel="UIPopupButtonClicked()" onload="SetupPopup()" style="max-width: 650px;">
         <Label class="PopupTitle" text="{s:title}" />
 
-		<Label class="PopupMessage" text="{s:message}" />
+		<Label class="PopupMessage" text="{s:message}" html="true" style="font-size: 21px;" />
+
+        <Panel id="ImageContainer" class="TopDownFlow">
+        </Panel>
 
 		<Panel class="PopupButtonRow">
 			<TextButton class="PopupButton" text="OK" onactivate="UIPopupButtonClicked()" />

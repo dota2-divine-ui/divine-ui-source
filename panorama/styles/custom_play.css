@@ -1,0 +1,67 @@
+DOTAPlay.Frostivus2017 #GameStyle_CustomGames
+{
+    background-image: url('file://{images}/06f4d77efb8b5651bd6cd45a31bb-1418233.png');
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: 40% 80%;
+}
+
+DOTAPlay.Frostivus2017 #CustomGamesSection #GameStyle_CustomGames Label
+{
+    text-shadow: #0e125b 0px 3px 1px 1px;
+}
+
+DOTAPlay.SectionVisible_CustomGames.Frostivus2017 #CustomGamesSection
+{
+    height: 426px;
+}
+
+.SectionVisible_CustomGames .ViolatorTag
+{
+    transform: translateY(-376px);
+}
+
+DOTAPlay.Frostivus2017 #CustomGamesSectionContent .RadioBox
+{
+    background-color: gradient( radial, 50% 50%, 0% 0%, 10% 10%, from( #000000 ), to( #000000 ) );
+    box-shadow: #00000055 -2px -2px 1px 4px;
+}
+
+DOTAPlay.Frostivus2017 #CustomGamesSectionContent RadioButton:selected > .RadioBox
+{
+    background-color: gradient( radial, 50% 50%, 0% 0%, 50% 50%, from( #FFB1AB ), to( #B26469 ) );
+}
+
+DOTAPlay.Frostivus2017 #CustomGamesSectionContent Label
+{
+    font-size: 16px;
+}
+
+DOTAPlay.Frostivus2017 #CustomGamesSectionContent .FrostivusFestivalDescription
+{
+    font-size: 14px;
+}
+
+/* Frostivus Custom Games */
+
+DOTAPlay.Frostivus2017 #CustomGamesSectionContent .CustomGameSelectionColumn
+{
+    width: fill-parent-flow(1);
+    height: 100%;
+}
+
+DOTAPlay.Frostivus2017 #CustomGamesSectionContent .PlayDividerLine
+{
+    background-color: #fff;
+}
+
+DOTAPlay.Frostivus2017 #CustomGamesSectionContent .BotSectionColumn
+{
+    overflow: clip squish;
+    text-overflow: ellipsis;
+}
+
+.MoreFrostivusLink
+{
+    text-decoration: underline;
+}

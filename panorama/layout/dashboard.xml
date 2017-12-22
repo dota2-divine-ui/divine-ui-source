@@ -7,15 +7,10 @@
         <include src="s2r://panorama/styles/custom_global.vcss_c" />
 	</styles>
 	<scripts>
+		<include src="s2r://panorama/scripts/utils.vjs_c" />
 		<include src="s2r://panorama/scripts/apis.vjs_c" />
     </scripts>
 	<script>
-	// Can we show the utility buttons for developers?
-	$('#DevButtons').visible = bIsDebug;
-
-	// We verify that we are using the latest version!
-	CheckVersion();
-
 	// Open a popup with Divine UI information
 	function OpenDivineUIPopup()
 	{
@@ -26,8 +21,19 @@
 			'latest_version=' + sLatestVersion
 		);
 	}
+
+	function OnLoad()
+	{
+		// Can we show the utility buttons for developers?
+		$('#DevButtons').visible = bIsDebug;
+
+		// We verify that we are using the latest version!
+		$.Schedule(1.0, function() {
+			CheckVersion();
+		});
+	}
 	</script>
-	<DOTADashboard class="InitialDisplay NotOnTodayPage" hittest="false">
+	<DOTADashboard class="InitialDisplay NotOnTodayPage" hittest="false" onload="OnLoad()">
 
 		<Panel id="DashboardCore">
 
@@ -197,7 +203,7 @@
 									<Button id="GuidesButton" class="DebugButton" onactivate="ToggleStyle( DashboardPagesGuides, Visible )" />
 								</Panel>
 
-								<Button id="DivineUIButton" class="TopBarSmallButton" onactivate="OpenDivineUIPopup()" onmouseover="UIShowTextTooltip('Divine UI. If this icon lights up and dances, there is a new version available.')" onmouseout="UIHideTextTooltip()" />
+								<Button id="DivineUIButton" class="TopBarSmallButton" onactivate="OpenDivineUIPopup()" onmouseover="UIShowTextTooltip(#DU_TooltipDivineUI)" onmouseout="UIHideTextTooltip()" />
 
 								<Button id="ReloadPageButton" class="TopBarSmallButton" onactivate="DOTAReloadCurrentPage()" />
 

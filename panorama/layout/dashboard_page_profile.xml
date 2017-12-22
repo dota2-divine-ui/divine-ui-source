@@ -9,8 +9,10 @@
 		<include src="s2r://panorama/styles/custom_dashboard_page_profile.vcss_c" />
 	</styles>
 	<scripts>
+		<include src="s2r://panorama/scripts/libs.vjs_c" />
 		<include src="s2r://panorama/scripts/utils.vjs_c" />
 		<include src="s2r://panorama/scripts/apis.vjs_c" />
+		<include src="s2r://panorama/scripts/divineui_page_profile.vjs_c" />
         <include src="s2r://panorama/scripts/custom_dashboard_page_profile.vjs_c" />
     </scripts>
 	<snippets>
@@ -213,14 +215,13 @@
 
 								<Panel id="PreviewPanel">
 									<Panel id="PreviewSpinner" class="Spinner" />
+									<Label id="ServerHint" class="ServerHint" text="#DU_ProfileCritical" />
 									<Label id="ServerError" class="ServerError" text="" />
 									<Panel id="NoShowcasePanel">
 										<Label text="#DU_NoShowcaseTitle" />
 										<Label text="#DU_NoShowcaseHint" />
 									</Panel>
 								</Panel>
-
-								<!--<DOTAUIEconSetPreview id="EconSetPreview2" class="EconSetPreview" allowrotation="true"  />-->
 							</Panel>
 
 							<Panel id="HeroStatsPanel">
@@ -235,7 +236,7 @@
 								</Panel>
 							</Panel>
 
-							<!-- Dummy Elements, only for loading icons -->
+							<!-- Dummy Elements for Loading -->
 							<Image src="file://{images}/icons/opendota-72x72.png" style="visibility: collapse;" />
 							<Image src="file://{images}/icons/dotabuff.png" style="visibility: collapse;" />
 							<Movie src="file://{resources}/videos/loadingscreens/lecia_dota_001/loadingscreen.webm" controls="none" repeat="false" autoplay="onload" style="visibility: collapse;" />
@@ -256,7 +257,7 @@
 								<Label class="Title" text="#DU_TopHeroes" />
 								
 								<Panel class="FiltersTabs">
-									<Label id="WinsTab" class="Tab" text="#DU_Wins" onactivate="SetTopHeroesTab('wins')" />
+									<Label id="WinsTab" class="Tab" text="#DU_WinRate" onactivate="SetTopHeroesTab('wins')" />
 									<Label class="TabSeparator" text="/" />
 									<Label id="FavoritesTab" class="Tab" text="#DU_Matches" onactivate="SetTopHeroesTab('favorites')" />
 								</Panel>
@@ -269,6 +270,8 @@
 								<Label class="Title" text="#DU_ProfessionalName" />
 								<Label id="ProNameValue" text="?" />
 							</Panel>
+
+							<Label id="ServerHint2" class="ServerHint2" text="" />
 
 							<Panel id="TrophyPreview" class="TopBottomFlow Section">
 								<Label id="TrophyCountLabel" text="#DOTA_TrophiesCount" />
@@ -340,7 +343,7 @@
 										<Label class="SectionText" text="#DU_ProfileBackgroundHint1" />
 										<Label class="SectionText" text="#DU_ProfileBackgroundHint2" />
 
-										<TextButton class="BlueButton" text="#DU_WithoutBackground" onactivate="SetProfileBackground('none')" />
+										<TextButton class="BlueButton" text="#DU_WithoutBackground" onactivate="Profile.setBackground('none')" />
 										<Panel id="AvailableBackgroundsPanel" class="AvailableBackgroundsList" />
 									</Panel>
 

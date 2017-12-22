@@ -18,7 +18,7 @@
     <PopupCustomLayout class="PopupPanel" popupbackground="dim" oncancel="UIPopupButtonClicked()" onload="SetupPopup()">
         <Label class="PopupTitle" text="Thanks for using Divine UI!" />
 
-		<Label class="PopupMessage" text="Created with the MMR of an Legend for the Dota 2 community." style="horizontal-align: center; font-weight: bold; font-size: 20px;" />
+		<Label class="PopupMessage" text="Created with the MMR of a Legend for the Dota 2 community." style="horizontal-align: center; font-weight: bold; font-size: 20px;" />
         <Label class="PopupMessage" html="true" text="Author: &lt;a href=&quot;http://steamcommunity.com/id/kolesiaz/&quot;&gt;Iván Bravo&lt;/a&gt; (&lt;a href=&quot;https://twitter.com/Kolesias&quot;&gt;@Kolesias&lt;/a&gt;)" style="horizontal-align: center; font-weight: bold; font-size: 20px;" />
 
         <Label class="PopupMessage" text="Installed Version: {s:version}" style="horizontal-align: left; margin-top: 20px;" />

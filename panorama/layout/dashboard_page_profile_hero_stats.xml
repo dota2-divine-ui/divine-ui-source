@@ -7,6 +7,7 @@
         <include src="s2r://panorama/styles/custom_dashboard_page_profile_hero_stats.vcss_c" />
 	</styles>
     <scripts>
+		<include src="s2r://panorama/scripts/utils.vjs_c" />
         <include src="s2r://panorama/scripts/apis.vjs_c" />
         <include src="s2r://panorama/scripts/custom_dashboard_page_profile_hero_stats.vjs_c" />
     </scripts>

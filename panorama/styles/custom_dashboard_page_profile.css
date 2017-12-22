@@ -477,16 +477,6 @@ DOTAProfilePage #ProfileBadge
     vertical-align: center;
 }
 
-#QuestionHate
-{
-    color: white;
-    font-size: 350px;
-    vertical-align: center;
-    horizontal-align: center;
-    vertical-align: center;
-    text-shadow: 2px 2px 4px 2.0 #000000;
-}
-
 #NoShowcasePanel
 {
     width: 100%;
@@ -517,6 +507,22 @@ DOTAProfilePage #ProfileBadge
     horizontal-align: center;
     visibility: collapse;
     margin: 10px 0;
+}
+
+.ServerHint
+{
+    color: #FBB23FFF;
+    font-size: 19px;
+    vertical-align: center;
+    horizontal-align: center;
+    margin-top: 90px;
+}
+
+.ServerHint2 {
+    color: #FBB23FFF;
+    font-size: 19px;
+    vertical-align: center;
+    margin: 15px;
 }
 
 #HeroPreview
@@ -585,7 +591,7 @@ DOTAProfilePage #ProfileBadge
 
 #HeroStatsPanel .HeroStatPanel
 {
-    width: 130px;
+    width: 180px;
 }
 
 .HeroStatLabel
@@ -600,7 +606,7 @@ DOTAProfilePage #ProfileBadge
 {
     font-size: 40px;
     font-weight: bold;
-    text-shadow: 1px 1px 2px 2.0 #000000;
+    //text-shadow: 1px 1px 2px 2.0 #000000;
     horizontal-align: center;
 }
 
@@ -770,7 +776,7 @@ DOTAProfilePage #ProfileBadge
     font-weight: bold;
     font-size: 35px;
     horizontal-align: center;
-    text-shadow: 0px 0px 12px #5d7070;
+    //text-shadow: 0px 0px 12px #5d7070;
 }
 
 /* Pro */
@@ -839,7 +845,6 @@ DOTAProfilePage #ProfileBadge
     width: 100%;
     flow-children: down;
     margin-bottom: 10px;
-    overflow: squish scroll;
 }
 
 #MoreInfo .Section .SectionTitle

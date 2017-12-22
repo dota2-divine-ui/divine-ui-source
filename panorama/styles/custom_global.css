@@ -12,6 +12,22 @@
     brightness: 3.0;
 }
 
+.AspectRatio4x3 #ReloadPageButton
+{
+    background-color: #000000aa;
+    margin-top: 110px;
+    width: 42px;
+    height: 41px;
+}
+
+.AspectRatio4x3 #DivineUIButton
+{
+    background-color: #000000aa;
+    margin-top: 110px;
+    width: 42px;
+    height: 41px;
+}
+
 #DivineUIButton
 {
     wash-color: #5B6670;
@@ -31,6 +47,16 @@
     animation-iteration-count: infinite;
 }
 
+#DivineUIButton.WowMuchVersion
+{
+    wash-color: #2307c0;
+    brightness: 3.0;
+    animation-name: MuchVersionDance;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
 #DivineUIButton:hover
 {
     brightness: 3.0;
@@ -40,14 +66,35 @@
 {
     0% {
         transform: rotatez(-10deg);
+        brightness: 2.0;
     }
 
     50% {
         transform: rotatez(10deg);
+        brightness: 1.0;
     }
 
     100% {
         transform: rotatez(-10deg);
+        brightness: 2.0;
+    }
+}
+
+@keyframes 'MuchVersionDance'
+{
+    0% {
+        brightness: 3.0;
+        wash-color: #2307c0;
+    }
+
+    50% {
+        brightness: 1.0;
+        wash-color: #2f2183;
+    }
+
+    100% {
+        brightness: 3.0;
+        wash-color: #2307c0;
     }
 }
 
